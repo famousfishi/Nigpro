@@ -1,0 +1,105 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title><h4 class="s-property-title">POST NEW AD:</h4></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content no-padding>
+   <form>
+     <ion-list>
+       <ion-item>
+         <ion-label floating>Category</ion-label>
+         <ion-select [(ngModel)]="categoryMethod" name="category" >
+           
+            <ion-option *ngFor="let cat of categories" value="{{cat.c_id}}">{{cat.c_title}}</ion-option>
+         </ion-select>
+       </ion-item>
+
+       <ion-item>
+        <ion-label floating>Title</ion-label>
+        <ion-input  [(ngModel)]="title" name="title"  ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Price</ion-label>
+        <ion-input type="number" name="amount" [(ngModel)]="amount" ></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Negotiable</ion-label>
+        <ion-select [(ngModel)]="negotiable" name="negotiate">
+          <ion-option *ngFor="let n of negotiableMethods" value={{n.neg_name}}>{{n.neg_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>Street</ion-label>
+        <ion-input  [(ngModel)]="street" name="street"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>City</ion-label>
+        <ion-input  [(ngModel)]="city" name="city"></ion-input>
+      </ion-item>
+
+       <ion-item>
+          <ion-label floating>States</ion-label>
+          <ion-select [(ngModel)]="state" name="region">
+             <ion-option *ngFor="let s of stateMethods"  value={{s.state_name}}>{{s.state_name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Country</ion-label>
+          <ion-select [(ngModel)]="countryMethod" name="country">
+            <ion-option *ngFor="let c of countries" value={{c.name}}>{{c.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+       <ion-item>
+          <ion-label floating>Description</ion-label>
+          <ion-input  [(ngModel)]="description" name="description" ></ion-input>
+        </ion-item> 
+
+        <ion-item>
+          <ion-label floating>Ad-Package</ion-label>
+          <ion-select [(ngModel)]="adPackageMethod" name="ad-package">
+            <ion-option *ngFor="let ad of adPackages" value={{ad.ID}}>{{ad.post_title}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+
+        
+
+          <ion-item>
+            <ion-label floating>Phone No.</ion-label>
+            <ion-input type="number" [(ngModel)]="zipcode"  name="zipcode"></ion-input>
+          </ion-item>
+
+          
+
+          <div padding style="text-align: center;">
+                  <p>{{imageURI}}</p>
+                  <button ion-button color="secondary" style="background-color: #1E8449" (click)="getImage(0)">SELECT PICTURE</button>
+                <ion-item>
+                  <h4 inset></h4>
+                  <img [src]="imageFileName"  *ngIf="imageFileName" alt="Ionic File" width="200" />
+                </ion-item>
+           
+        </div>
+
+    
+      <div padding>
+        <button ion-button class="btn btn-default"  (click)="addPost()" block>SAVE & POST</button>
+    </div>
+
+     </ion-list>
+
+     
+   </form>
+
+</ion-content>

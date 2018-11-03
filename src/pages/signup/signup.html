@@ -1,0 +1,54 @@
+
+
+<ion-header>
+  <ion-navbar>
+      <ion-title>
+          <h4 class="s-property-title">REGISTER:</h4>
+      </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form>
+      <ion-list>
+          
+              <ion-item>
+                  <ion-label floating>Username</ion-label>
+                  <ion-input type="text" name="username" [(ngModel)]="user_login"></ion-input>
+              </ion-item>
+
+         <ion-item>
+              <ion-label floating>E-mail</ion-label>
+              <ion-input type="email" name="email" [(ngModel)]="email"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Password</ion-label>
+              <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
+          </ion-item>
+
+          <ion-item>
+              <ion-label floating>Confirm Password</ion-label>
+              <ion-input type="password"  name="password_confirmation" [(ngModel)]="password_confirmation"></ion-input>
+          </ion-item>
+
+
+
+            <ion-item>
+                <ion-label floating>Fullname</ion-label>
+                <ion-input type="text" name="fullname" [(ngModel)]="fullName"></ion-input>
+            </ion-item>
+  
+          <div padding>
+              <button ion-button class="btn btn-default" block (click)="register()">REGISTER</button>
+          </div>
+      </ion-list>
+  </form>
+  <!-- <div>
+      <ion-fab bottom right>
+          <button ion-fab class="hmait">
+              <ion-icon name="ios-person-add-outline"></ion-icon>
+          </button>
+      </ion-fab>
+  </div> -->
+</ion-content>

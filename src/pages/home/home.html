@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-searchbar>
+
+    </ion-searchbar>
+</ion-header>
+
+
+
+<ion-content no-padding #content class="gallery">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+
+<ion-grid>
+  <ion-row wrap style="text-align: center; padding-left: 10px;">
+    <ion-col col-4 *ngFor="let cat of categories" (click)="openAdsCategoryPage('' + cat.c_id,'' + cat.c_title)">
+          <div padding style="text-align: center; padding-left: 10px;">
+            <img src="{{cat.c_icon}}"><br>
+            
+          </div>
+          <span><h6>{{cat.c_title}}</h6></span>
+    
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+</ion-content>
