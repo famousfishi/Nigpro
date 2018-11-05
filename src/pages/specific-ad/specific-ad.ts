@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { NavController, NavParams, Slides } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { ChatPage } from '../chat/chat';
 
 
 /**
@@ -10,7 +11,7 @@ import { ApiProvider } from '../../providers/api/api';
  * Ionic pages and navigation.
  */
 
-@IonicPage({})
+
 @Component({
   selector: 'page-specific-ad',
   templateUrl: 'specific-ad.html',
@@ -48,7 +49,7 @@ export class SpecificAdPage {
 
   //chat box
   startChat(){
-    this.navCtrl.push('ChatPage');
+    this.navCtrl.push(ChatPage);
   }
 
   getSpecificAd(id:number){

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
+import {  NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
+
+import { MyProfilePage } from '../my-profile/my-profile';
 
 
 /**
@@ -11,7 +13,7 @@ import { Storage } from '@ionic/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage({})
+
 @Component({
   selector: 'page-signup',
   templateUrl: 'signup.html',
@@ -92,7 +94,8 @@ export class SignupPage {
               buttons :[{
                 text: 'OK',
                 handler: () =>{
-                this.navCtrl.setRoot('HomePage');
+              
+               this.navCtrl.setRoot(MyProfilePage);
                 }
               }]
             }).present();

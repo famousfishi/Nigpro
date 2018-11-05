@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import {Storage} from '@ionic/storage';
+import { ProfilePage } from '../profile/profile';
 
 
 
@@ -11,7 +12,6 @@ import {Storage} from '@ionic/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage({})
 @Component({
   selector: 'page-my-profile',
   templateUrl: 'my-profile.html',
@@ -40,7 +40,7 @@ export class MyProfilePage {
           console.log("User not found");
           this.user = {};
           this.loggedIn = false;
-          this.navCtrl.setRoot('ProfilePage');
+          this.navCtrl.setRoot(ProfilePage);
         }
       }).catch(error => {
         console.log("unable to find login Info");
@@ -57,7 +57,7 @@ export class MyProfilePage {
 
 
   logout(){
-    this.navCtrl.setRoot('ProfilePage');
+    this.navCtrl.setRoot(ProfilePage);
     this.storage.remove("loginInfo");
   }
 }

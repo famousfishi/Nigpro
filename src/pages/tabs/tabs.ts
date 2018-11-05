@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 
 
-import { IonicPage } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { MyProfilePage } from '../my-profile/my-profile';
 import { AddPostsPage } from '../add-posts/add-posts';
 import { FavSubPage } from '../fav-sub/fav-sub';
 import { NotificationsPage } from '../notifications/notifications';
 
-@IonicPage({})
+
 @Component({
   templateUrl: 'tabs.html'
 })

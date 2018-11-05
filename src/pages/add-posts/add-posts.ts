@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, LoadingController, AlertController } from 'ionic-angular';
 import { Camera, CameraOptions } from "@ionic-native/camera";
 import { ApiProvider } from '../../providers/api/api';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
  */
 
 
-@IonicPage({})
+// @IonicPage({})
 @Component({
   selector: 'page-add-posts',
   templateUrl: 'add-posts.html',
@@ -274,11 +274,11 @@ testMethod: any;
             let d:any = data;
             this.upload_image(d.id);
 
-        this.alertCtrl.create({
-          message: 'Your post has been uploaded, waiting to be approved',
-          title: 'UPLOAD STATUS',
-          
-        }).present();
+            this.alertCtrl.create({
+              message: 'Your post has been uploaded, waiting to be approved',
+              title: 'UPLOAD STATUS',
+              
+            }).present();
 
           
 

@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, ToastController, AlertController } from 'ionic-angular';
 
 import { ApiProvider } from '../../providers/api/api';
 import { Storage } from '@ionic/storage';
+import { MyProfilePage } from '../my-profile/my-profile';
+import { SignupPage } from '../signup/signup';
 
 /**
  * Generated class for the ProfilePage page.
@@ -11,7 +13,6 @@ import { Storage } from '@ionic/storage';
  * Ionic pages and navigation.
  */
 
-@IonicPage({})
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html',
@@ -62,15 +63,9 @@ export class ProfilePage {
             buttons :[{
               text: 'OK',
               handler: () =>{
-                // if(this.navParams.get('next')){
-                //   this.navCtrl.push(this.navParams.get('next'));
-  
-                // } else {
-                //   this.navCtrl.pop();
-                // }
-           
+        
 
-               this.navCtrl.setRoot('MyProfilePage');
+               this.navCtrl.setRoot(MyProfilePage);
               }
             }]
           }).present();
@@ -86,6 +81,6 @@ export class ProfilePage {
   }
 
   signUp(){
-    this.navCtrl.push('SignupPage');
+    this.navCtrl.push(SignupPage);
   }
 }

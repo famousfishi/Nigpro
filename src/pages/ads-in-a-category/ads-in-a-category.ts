@@ -1,16 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { SpecificAdPage } from '../specific-ad/specific-ad';
 
 
-/**
- * Generated class for the AdsInACategoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage({})
+// @IonicPage({})
 @Component({
   selector: 'page-ads-in-a-category',
   templateUrl: 'ads-in-a-category.html',
@@ -69,7 +63,7 @@ export class AdsInACategoryPage {
 
   openSpecificAd(id: number, titleAd: string){
     console.log('The id is ' + id);
-    this.navCtrl.push('SpecificAdPage', {"id": id, "titleAd": titleAd});
+    this.navCtrl.push(SpecificAdPage, {"id": id, "titleAd": titleAd});
   }
 
 

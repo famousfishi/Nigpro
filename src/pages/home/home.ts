@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
-import { NavController, Content, ToastController, IonicPage } from 'ionic-angular';
+import { NavController, Content, ToastController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
+import { AdsInACategoryPage } from '../ads-in-a-category/ads-in-a-category';
 
-@IonicPage({})
+// @IonicPage({})
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -73,7 +74,7 @@ export class HomePage {
   //goToAdsCategoryPage
   openAdsCategoryPage(id: number, title: string){
     console.log('The id is: ' + id);
-    this.navCtrl.push('AdsInACategoryPage', {"id": id, "title": title});
+    this.navCtrl.push(AdsInACategoryPage, {"id": id, "title": title});
   }
   
 

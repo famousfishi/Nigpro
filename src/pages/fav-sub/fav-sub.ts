@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
 
 
-@IonicPage({})
+// @IonicPage({})
 @Component({
   selector: 'page-fav-sub',
   templateUrl: 'fav-sub.html',

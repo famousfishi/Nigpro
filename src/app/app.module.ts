@@ -30,6 +30,14 @@ import { AddPostsPage } from '../pages/add-posts/add-posts';
 import { FavSubPage } from '../pages/fav-sub/fav-sub';
 import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { NotificationsPage } from '../pages/notifications/notifications';
+import { AdsInACategoryPage } from '../pages/ads-in-a-category/ads-in-a-category';
+import { ChatPage } from '../pages/chat/chat';
+import { ChatComponent } from '../components/chat/chat';
+import { NotificationPage } from '../pages/notification/notification';
+import { ProfilePage } from '../pages/profile/profile';
+import { SignupPage } from '../pages/signup/signup';
+import { SpecificAdPage } from '../pages/specific-ad/specific-ad';
+import { SubscriptionPage } from '../pages/subscription/subscription';
 
 
 
@@ -42,7 +50,17 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     MyProfilePage,
     FavSubPage, 
     NotificationsPage,
-    AddPostsPage
+    AddPostsPage,
+    AdsInACategoryPage,
+    ChatPage,
+    ChatComponent,
+    NotificationPage,
+    ProfilePage,
+    SignupPage,
+    SpecificAdPage,
+    SubscriptionPage
+    
+    
     
   ],
   imports: [
@@ -60,7 +78,16 @@ import { NotificationsPage } from '../pages/notifications/notifications';
     MyProfilePage,
     FavSubPage, 
     NotificationsPage,
-    AddPostsPage
+    AddPostsPage,
+    AdsInACategoryPage,
+    ChatPage,
+    ChatComponent,
+    NotificationPage,
+    ProfilePage,
+    SignupPage,
+    SpecificAdPage,
+    SubscriptionPage
+  
    
   ],
   providers: [
