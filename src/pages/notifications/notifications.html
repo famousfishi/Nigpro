@@ -5,20 +5,38 @@
     <ion-title>
       <h4 class="s-property-title">MESSAGES:</h4>
     </ion-title>
-   
+
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding style="text-align: center">
 
-  <!-- <div>
-    <ion-fab bottom right>
-        <button ion-fab class="hmait" (click)="notify()" >
-            <ion-icon name="cart"></ion-icon>
-        </button>
-    </ion-fab>
-</div> -->
+  <img src="../../assets/imgs/email.png"/>
+
+  <p>Users you might have chatted with on products you posted!</p>
+
+  <ion-list inset *ngIf="!logged_person ; else notAvailable" >
+
+    <button ion-item *ngFor="let item of users">
+        <ion-thumbnail item-left>
+            <img src="../../assets/imgs/boy.png" style="height: 50px; width: 50px;"/>
+          </ion-thumbnail >
+      {{ item.user_nicename }}
+    </button>
+
+  </ion-list>
+
+
+    <ng-template #notAvailable>
+      <div class="favourites" style="text-align: center">
+        <!-- <img src="../../assets/imgs/attention.png"><br> -->
+        <p><b>You haven't chatted with any persons recently</b></p><br><br>
+      </div>
+     </ng-template>
+
+
+
 
 </ion-content>

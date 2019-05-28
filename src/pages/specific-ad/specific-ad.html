@@ -8,48 +8,67 @@
 </ion-header>
 
 
-<ion-content no-padding>
+<ion-content no-padding  >
+  <ion-card *ngIf="itemsAvailability; else notAvailable">
+      <ion-refresher (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+  
+  
+    <ion-grid *ngFor="let item of items" >
+      <ion-row  wrap style=" padding-left: 0px;">
+        <ion-slides #itemSlides>
+          <ion-slide *ngFor="let item of items">
+            <ion-card no-padding height="40px">
+              <img src="{{item.images[0]}}">
+            </ion-card>
+           
+          </ion-slide>
+        </ion-slides>
+            
+      </ion-row>
+    </ion-grid>
+  
+        <ion-card *ngFor="let item of items" style="padding-left: 5px;">
+            <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Details</ion-item-divider>
+            <p><b>City.............................................</b> {{item.city}}</p>
+            <p><b>State.............................................</b> {{item.state}}</p>
+            <p><b>Price.............................................</b> {{item.price}}</p>
+            <p><b>Phone No................................</b> {{item.zipCode}}</p>
+            <!-- <p><b>Phone No.................</b><span><button ion-button>Show Number</button></span> </p> -->
+        </ion-card>
+  
+        <ion-card *ngFor="let item of items" style="padding-left: 5px;">
+            <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Description</ion-item-divider>
+            <p>{{item.post_content}}</p>
+        </ion-card>
 
-
-  <ion-grid *ngFor="let item of items" >
-    <ion-row  wrap style=" padding-left: 0px;">
-      <ion-slides #itemSlides>
-        <ion-slide *ngFor="let item of items">
-          <ion-card no-padding height="40px">
-            <img src="{{item.images[0]}}">
-          </ion-card>
-         
-        </ion-slide>
-      </ion-slides>
+       
+  
+  
+        <ion-card>
+            <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Chat with seller</ion-item-divider>
           
-    </ion-row>
-  </ion-grid>
+            <div padding>
+                <button ion-button class="btn btn-default" (click)="startChat()" block>Start Chat</button>
+            </div>
+        </ion-card>
 
-      <ion-card *ngFor="let item of items" style="padding-left: 5px;">
-          <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Details</ion-item-divider>
-          <p><b>City.............................................</b> {{item.city}}</p>
-          <p><b>State.............................................</b> {{item.state}}</p>
-          <p><b>Price.............................................</b> {{item.price}}</p>
-          <p><b>Phone No................................</b> {{item.zipCode}}</p>
-          <!-- <p><b>Phone No.................</b><span><button ion-button>Show Number</button></span> </p> -->
-      </ion-card>
+        
 
-      <ion-card *ngFor="let item of items" style="padding-left: 5px;">
-          <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Description</ion-item-divider>
-          <p>{{item.post_content}}</p>
-      </ion-card>
+  </ion-card>
+  
 
 
-      <ion-card>
-          <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Chat with seller</ion-item-divider>
-          <!-- <span><button ion-button clear style="border: 1px solid green">What is the last price?</button></span> -->
-          <ion-input placeholder="Write your message here..." name="message"></ion-input>
-          <div padding>
-              <button ion-button class="btn btn-default" (click)="startChat()" block>Start Chat</button>
-          </div>
-      </ion-card>
+      <ng-template #notAvailable>
+        <div class="favourites" style="text-align: center">
+          <img src="../../assets/imgs/attention.png"><br>
+          <p><b>Item not available, please check back</b></p><br><br>
+        </div>
+       </ng-template>
 
-
-
+     
 
 </ion-content>
+
+

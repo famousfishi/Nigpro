@@ -3,13 +3,14 @@
 
   <ion-navbar>
     <ion-title><h4 class="s-property-title">POST NEW AD:</h4></ion-title>
+   
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content no-padding>
-   <form>
+   <form *ngIf="loggedIn; else notLoggedInHere">
      <ion-list>
        <ion-item>
          <ion-label floating>Category</ion-label>
@@ -101,5 +102,22 @@
 
      
    </form>
+
+
+   <ng-template #notLoggedInHere>
+    <div class="favourites" style="text-align: center">
+      <img src="../../assets/imgs/attention.png"><br>
+      <p><b>You are not logged In</b></p><br><br>
+    </div>
+   </ng-template>
+
+
+   <!-- <div>
+      <ion-fab bottom right>
+          <button ion-fab class="hmait" (click)="checkPosts()">
+              <ion-icon name="bookmarks"></ion-icon>
+          </button>
+      </ion-fab>
+  </div> -->
 
 </ion-content>

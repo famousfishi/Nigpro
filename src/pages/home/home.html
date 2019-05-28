@@ -1,12 +1,31 @@
 <ion-header>
-  <ion-searchbar>
+  <!-- <ion-searchbar>
 
-    </ion-searchbar>
+    </ion-searchbar> -->
+    <ion-navbar >
+      <h5 class="s-property-title">NIGPRO</h5>
+
+        <!-- <ion-buttons end>
+            <button ion-button icon-only  (click)="favourites()">
+            <ion-icon style="color: #1E8449 " name="heart"></ion-icon>
+            </button>
+          </ion-buttons> -->
+
+      </ion-navbar>
+      <ion-toolbar no-padding fixed >
+          <ion-searchbar [(ngModel)]="searchQuery" (keyup)="changeCount($event)" (search)="onSearch($event)"></ion-searchbar>
+          <div [hidden]='!itemsDisplay'>
+            {{searchQuery}}
+          </div>
+        </ion-toolbar>
+
 </ion-header>
 
 
 
+
 <ion-content no-padding #content class="gallery">
+
     <ion-refresher (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
       </ion-refresher>
@@ -17,10 +36,10 @@
     <ion-col col-4 *ngFor="let cat of categories" (click)="openAdsCategoryPage('' + cat.c_id,'' + cat.c_title)">
           <div padding style="text-align: center; padding-left: 10px;">
             <img src="{{cat.c_icon}}"><br>
-            
+
           </div>
           <span><h6>{{cat.c_title}}</h6></span>
-    
+
     </ion-col>
   </ion-row>
 </ion-grid>

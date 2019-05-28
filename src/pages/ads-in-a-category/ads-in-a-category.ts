@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { ApiProvider } from '../../providers/api/api';
 import { SpecificAdPage } from '../specific-ad/specific-ad';
+
 
 
 // @IonicPage({})
@@ -14,10 +15,14 @@ export class AdsInACategoryPage {
   id: number;
   title: string;
   base_url: 'https://www.nigpro.com/nigpro/api/v1';
+  product_id: any;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, public api: ApiProvider, public alertCtrl: AlertController) {
-   
+  itemsAvailability: boolean;
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams, public api: ApiProvider, public alertCtrl: AlertController,
+     public toastCtrl : ToastController) {
+
     this.id = this.navParams.get('id');
     this.title = this.navParams.get('title');
     this.adsInACategory(this.id);
@@ -33,10 +38,28 @@ export class AdsInACategoryPage {
     this.title = this.navParams.get('title');
   }
 
-  
+  doRefresh(refresher){
+    this.api.getCategories().then(data=>{
+      console.log(data);
+      refresher.complete();
+      this.items = data;
+
+      if(this.items == ""){
+        this.toastCtrl.create({
+          message: 'Loading Products..',
+          duration: 4000,
+        }).present()
+      }
+      console.log(this.items);
+      console.log('finished refeshing...')
+    });
+  }
+
+
   adsInACategory(id: number){
     this.api.getAdsInCategory(id).then(data=>{
       this.items = data;
+      this.product_id = data['ID'];
       console.log(this.items);
       if(this.items == ""){
         this.alertCtrl.create({
@@ -55,6 +78,14 @@ export class AdsInACategoryPage {
           }]
         }).present();
       }
+
+
+      // if(this.items != null){
+      //   this.itemsAvailability = true;
+      // }
+      //  else{
+      //    this.itemsAvailability = false;
+      //  }
     }).catch(error=>{
       console.log(error);
     });
@@ -64,6 +95,7 @@ export class AdsInACategoryPage {
   openSpecificAd(id: number, titleAd: string){
     console.log('The id is ' + id);
     this.navCtrl.push(SpecificAdPage, {"id": id, "titleAd": titleAd});
+
   }
 
 

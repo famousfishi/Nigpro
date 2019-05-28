@@ -17,7 +17,5 @@ export class FavSubPage {
     console.log('ionViewDidLoad FavSubPage');
   }
   
-  subscription(){
-    this.navCtrl.push('SubscriptionPage');
-  }
+
 }

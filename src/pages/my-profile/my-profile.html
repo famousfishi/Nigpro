@@ -14,34 +14,16 @@
 
 
 <ion-content padding style="text-align:center;">
-        <!-- <div class="profile-image-wrapper" >
-                <div class="profile-image-placeholder">
-                
-                 
-                  <div>
-                  
-                  </div>
-                </div>
-                <div class="profile-image"></div>
-              </div> -->
+  
               <img src="../../assets/imgs/boy.png">
 
-              <!-- <ion-list>
-                    <ion-item>
-                      <ion-input type="text"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-input type="text"></ion-input>
-                    </ion-item>
-                  </ion-list> -->
-<!-- 
-                  <ion-label *ngFor="let person of user">
-                    Username: {{person.display_name}}
-                  </ion-label>
-                  <ion-label *ngFor="let person of user">
-                    Email: {{person.user_email}}
-                    </ion-label> -->
+              <h6><b>Username:</b> <span style="color:#1E8449 ">{{user}}</span> </h6>
+              <h6><b>Email: </b> <span style="color:#1E8449; text-transform:lowercase ">{{email}}</span>  </h6><br/>
 
+            
+                    <div padding>
+                        <button ion-button class="btn btn-default"  (click)="addPost()" block>POST AN AD</button>
+                    </div>
 
 
   <div>

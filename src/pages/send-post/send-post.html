@@ -1,0 +1,69 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+      <h4 class="s-property-title">POSTS:</h4>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding style="text-align: center">
+  <img src="../../assets/imgs/post-it.png">
+
+  <ion-item-divider *ngIf="itemsLogged" style="background-color: #1E8449; color: white; text-align: center">Waiting to
+    be approved by Admin!</ion-item-divider>
+
+  <p *ngIf="!itemsLogged">Your approved posts appear here!
+  </p>
+
+  <ion-grid *ngIf="itemsLogged">
+    <ion-row wrap style=" padding-left: 0px;">
+      <!-- <ion-slides> -->
+      <!-- <ion-slide> -->
+      <ion-card no-padding height="40px">
+        <img src="{{imageUri}}" style="height: 50">
+      </ion-card>
+
+
+      <!-- </ion-slide> -->
+      <!-- </ion-slides> -->
+
+    </ion-row>
+  </ion-grid>
+
+  <ion-card *ngIf="itemsLogged">
+    <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Details</ion-item-divider>
+    <p><b>City.............................................</b> {{city}}</p>
+    <p><b>State.............................................</b> {{state}} </p>
+    <p><b>Price.............................................</b> {{amount | currency: "N"}}</p>
+    <p><b>Phone No................................</b> {{zipcode}}</p>
+
+  </ion-card>
+
+  <ion-card *ngIf="itemsLogged">
+    <ion-item-divider style="background-color: #1E8449; color: white; text-align: center">Item Description</ion-item-divider>
+    <p style="text-align: center;">{{description}}</p>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-list inset>
+      <!-- <ion-item *ngFor="let item of airtime_list | paginate:  {itemsPerPage: per_page, currentPage: current_page, totalItems:total_pages }"> -->
+
+      <ion-item *ngFor="let item of my_data" (click)="goToMainPage(''+ item.ID)">
+        <h3> <b>Title: {{item.post_title}}</b></h3>
+        <h3> <b>Type: {{item.post_type}}</b></h3>
+        <h3> <b>Description: {{item.post_content}}</b></h3>
+        <!-- <h3> <b>Status: {{item.status}}</b></h3> -->
+        <h3> <b>Status: {{item.post_status}}</b></h3>
+
+
+
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+
+</ion-content>

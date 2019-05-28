@@ -14,21 +14,36 @@
 
 
 <ion-content no-padding>
+  <!-- <ion-card *ngIf="availableProducts; else notAvailable"> -->
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
 
-  <ion-list inset>
-    <ion-item *ngFor="let item of items" (click)="openSpecificAd(''+ item.ID, ''+item.post_title)">
-        <ion-thumbnail item-left>
-            <img src= "{{item.images[0]}}"/>
-          </ion-thumbnail >
-      <h3>{{item.post_title}}</h3>
-      <p>
-          <span>{{item.price }}</span><br>
-          <span>Posted on: {{item.post_date | date}}</span>
-      </p>
-      <button ion-button icon clear item-right>
-          <ion-icon name="arrow-forward"></ion-icon>
-        </button>
-    </ion-item>
-  </ion-list>
+          <ion-list inset>
+              <ion-item *ngFor="let item of items" (click)="openSpecificAd(''+ item.ID, ''+item.post_title)">
+                  <ion-thumbnail item-left>
+                      <img src= "{{item.images[0]}}"/>
+                    </ion-thumbnail >
+                <h3>{{item.post_title}}</h3>
+                <p>
+                    <span>{{item.price }}</span><br>
+                    <span>Posted on: {{item.post_date | date}}</span>
+                </p>
+                <button ion-button icon clear item-right>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </button>
+              </ion-item>
+            </ion-list>
+      <!-- </ion-card> -->
+
+
+   <!-- <ng-template #notAvailable>
+      <div class="favourites" style="text-align: center">
+        <img src="../../assets/imgs/attention.png"><br>
+        <p><b>There are no products in this category yet</b></p><br><br>
+      </div>
+     </ng-template> -->
+
+
 
 </ion-content>

@@ -22,6 +22,7 @@ export class ProfilePage {
   password: string = "";
   user: any;
   loggedIn: boolean;
+  email: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public loadingCtrl: LoadingController,
     public api: ApiProvider, public toastCtrl: ToastController, public storage: Storage, public alertCtrl: AlertController) {
@@ -31,12 +32,12 @@ export class ProfilePage {
     console.log('ionViewDidLoad ProfilePage');
   }
 
-  
+
 
 
   login(){
     this.loadingCtrl.create({
-      content: 'Please wait...', 
+      content: 'Please wait...',
       duration: 4000
     }).present();
 
@@ -46,10 +47,16 @@ export class ProfilePage {
         let r: any = data;
         //console.log(r.message);
 
+
         //set the storage here
         this.storage.set('loginInfo', r).then(data=>{
-      
+
         console.log(data);
+
+       // r.user_email = data['user_email']
+       // console.log(data['user_email']);
+       // r.display_name = data['display_name'];
+        //console.log(data['display_name']);
         if(data == 'Your credentials does not match any of our records.'){
           this.toastCtrl.create({
             message: 'Invalid email or password!',
@@ -63,14 +70,14 @@ export class ProfilePage {
             buttons :[{
               text: 'OK',
               handler: () =>{
-        
+
 
                this.navCtrl.setRoot(MyProfilePage);
               }
             }]
           }).present();
         }
-      })
+      });
     }).catch(error=>{
       this.toastCtrl.create({
         message: 'You need a good internet connection...',

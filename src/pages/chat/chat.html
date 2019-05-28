@@ -5,5 +5,54 @@
 </ion-header>
 
 <ion-content>
-  <chat></chat>
+    <!-- <div class="main">
+        <div class="chat-box">
+          <div class="message-area">
+            <div class="message" *ngFor="let message of messages" [ngClass]="getClasses(message.sender_id)">
+              <p>{{message['message']}}</p>
+            </div>
+    
+          </div>
+          <div class="emo-area">
+            
+          </div>
+          <div class="input-area">
+            <form (submit)="postMessage()" name="messageForm" #messageForm="ngForm">
+              <ion-input type="text" name="message" id="message" [(ngModel)]="message" placeholder="Say something nice......"></ion-input>
+              <button>
+                <ion-icon name="send"></ion-icon>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div> -->
+    
+      <p>
+        <ion-item-divider color="green" ><b>MESSAGES</b></ion-item-divider>
+
+      </p>
+      <!-- <ion-thumbnail item-left style="height: 10px; width: 10px;">
+        <img src="../../assets/imgs/boy.png" >
+      </ion-thumbnail> -->
+      <div class="blockv" style="padding-left : 25px; color: green" *ngFor="let item of previous_messages" >
+    
+
+        <div *ngIf="item.sender_id == sid;then content else other_content" >{{me}}</div>
+
+        <ng-template class="blockv" #content>{{me}}</ng-template><br>
+        {{item.message}}<hr>
+        <ng-template class="blockv" #other_content>{{the_recipient}}</ng-template>
+
+        <!-- {{item.message}} -->
+      </div>
+      
+     
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-item>
+      <ion-input type="text" placeholder="Type message here..." (keypress)="sendChat($event)" [(ngModel)]="message" name="message"></ion-input>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>

@@ -3,6 +3,12 @@
   "integrations": {
     "cordova": {}
   },
+    "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "https://www.nigpro.com/nigpro/api/v1"
+    }
+  ],
   "type": "ionic-angular",
   "app_id": ""
 }

@@ -23,7 +23,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ApiProvider } from '../providers/api/api';
 
-import { PusherProvider } from '../providers/pusher/pusher';
 import { TabsPage } from '../pages/tabs/tabs';
 import { HomePage } from '../pages/home/home';
 import { AddPostsPage } from '../pages/add-posts/add-posts';
@@ -32,12 +31,14 @@ import { MyProfilePage } from '../pages/my-profile/my-profile';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { AdsInACategoryPage } from '../pages/ads-in-a-category/ads-in-a-category';
 import { ChatPage } from '../pages/chat/chat';
-import { ChatComponent } from '../components/chat/chat';
-import { NotificationPage } from '../pages/notification/notification';
+
 import { ProfilePage } from '../pages/profile/profile';
 import { SignupPage } from '../pages/signup/signup';
 import { SpecificAdPage } from '../pages/specific-ad/specific-ad';
-import { SubscriptionPage } from '../pages/subscription/subscription';
+import { SendPostPage } from '../pages/send-post/send-post';
+import { SearchPage } from '../pages/search/search';
+import { UnverifiedpostPage } from '../pages/unverifiedpost/unverifiedpost';
+
 
 
 
@@ -48,20 +49,21 @@ import { SubscriptionPage } from '../pages/subscription/subscription';
      TabsPage,
     HomePage,
     MyProfilePage,
-    FavSubPage, 
+    FavSubPage,
     NotificationsPage,
     AddPostsPage,
     AdsInACategoryPage,
     ChatPage,
-    ChatComponent,
-    NotificationPage,
+
     ProfilePage,
     SignupPage,
     SpecificAdPage,
-    SubscriptionPage
-    
-    
-    
+    SendPostPage,
+    SearchPage,
+    UnverifiedpostPage
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -76,19 +78,21 @@ import { SubscriptionPage } from '../pages/subscription/subscription';
     TabsPage,
    HomePage,
     MyProfilePage,
-    FavSubPage, 
+    FavSubPage,
     NotificationsPage,
     AddPostsPage,
     AdsInACategoryPage,
     ChatPage,
-    ChatComponent,
-    NotificationPage,
+
+
     ProfilePage,
     SignupPage,
     SpecificAdPage,
-    SubscriptionPage
-  
-   
+    SendPostPage,
+    SearchPage,
+    UnverifiedpostPage
+
+
   ],
   providers: [
     StatusBar,
@@ -101,9 +105,8 @@ import { SubscriptionPage } from '../pages/subscription/subscription';
     File,
     Camera,
     ApiProvider,
-    PusherProvider,
     HTTP
-    
+
   ]
 })
 export class AppModule {}

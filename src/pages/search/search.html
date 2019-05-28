@@ -1,0 +1,34 @@
+<!--
+  Generated template for the SearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+ <ion-list>
+   <ion-item *ngFor="let product of items" (click)="openSpecificAd(''+ product.ID, ''+product.post_title)">
+      <ion-thumbnail item-left >
+        <img src="{{product.images[0]}}" onerror="this.onerror=null;this.src='https://ik.imagekit.io/demo/img/tr:di-medium_cafe_B1iTdD0C.jpg/non_existent_image.jpg';">
+      
+      </ion-thumbnail>
+      <h2>{{product.post_title}}</h2>
+    <p>
+      <span>{{product.price | currency : "N" }}</span>
+    </p>
+    <button ion-button icon clear item-right>
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+   </ion-item>
+ </ion-list>
+
+</ion-content>
